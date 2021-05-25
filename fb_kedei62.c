@@ -87,9 +87,10 @@ static void set_addr_win(struct fbtft_par *par, int xs, int ys,
 static int write_vmem(struct fbtft_par *par, size_t offset, size_t len)
 {
 	u8 *vmem8 = (u8 *)(par->info->screen_buffer + offset);
+    int i;
 	uint8_t b1[3];
     b1[0] = 0x15;
-    int i;
+    
     for (i=0;i<len;i+=2)
     {
         b1[1] = vmem8[i+1];
